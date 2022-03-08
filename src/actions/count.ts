@@ -1,12 +1,15 @@
 export type count_actions_type = { type: "INCREMENT" } | { type: "DECREMENT" };
+type count_action_type = { type: string };
+
 export type count_action_creators_type = {
-  increment: () => {
-    type: string;
-  };
-  decrement: () => {
-    type: string;
-  };
+  increment: () => count_action_type;
+  decrement: () => count_action_type;
 };
+
+export enum count_action_names {
+  increment = "INCREMENT",
+  decrement = "DECREMENT",
+}
 
 export const count_action_creators = {
   increment: increment,
@@ -14,9 +17,9 @@ export const count_action_creators = {
 };
 
 function increment() {
-  return { type: "INCREMENT" };
+  return { type: count_action_names.increment };
 }
 
 function decrement() {
-  return { type: "DECREMENT" };
+  return { type: count_action_names.decrement };
 }

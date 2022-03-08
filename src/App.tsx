@@ -5,9 +5,10 @@ import {
   count_action_creators,
   count_action_creators_type,
 } from "./actions/count";
+import { count_state_type } from "./reducers/count";
 
 interface IProps {
-  count: { value: number };
+  count: count_state_type;
   count_action_creators: count_action_creators_type;
 }
 
@@ -24,7 +25,7 @@ class PureApp extends React.Component<IProps> {
   }
 }
 
-function mapStateToProps(state: { count: { value: number } }) {
+function mapStateToProps(state: { count: count_state_type }) {
   return { count: state.count };
 }
 
